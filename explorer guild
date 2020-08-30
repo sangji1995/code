@@ -1,0 +1,13 @@
+n=int(input()) #모험가수 입력
+f=list(map(int,input().split())) #공포도 입력
+count=0 #모험가 수
+group=0 #공포도 넘기면 그룹하나 생성하기
+
+#공포도 넣기 공포도를 가진 모험가 수를 더한다.
+for i in f: 
+    count+=1
+    if count>=i:
+       group+=1
+       count=0
+       
+print(group)       
