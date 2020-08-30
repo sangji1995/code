@@ -1,0 +1,10 @@
+n=int(input())
+m=list(map(int,input().split()))
+m.sort() #1 1 3 4 11
+result=1
+
+for i in m:
+    if result<i:
+        break
+    result+=i
+print(result)    
