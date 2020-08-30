@@ -1,0 +1,19 @@
+n=int(input()) #행렬의 숫자
+x,y=1,1 #시작점
+direction=input().split() #움직임을 문자로 나타내기
+
+move=["L","R","U","D"]
+dx=[0,0,-1,1] #상하좌우
+dy=[-1,1,0,0] #상하좌우
+
+for i in direction:
+    for j in range(len(move)):
+          if i==move[j]:
+              x1=x+dx[j]
+              y1=y+dy[j]
+        
+    if x1<1 or y1<1 or x1>n or y1>n : #범위초과
+         continue
+    x,y=x1,y1 
+        
+print(x,y)      
