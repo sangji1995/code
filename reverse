@@ -1,0 +1,17 @@
+s=input()
+c1=0 #0
+c2=0 #1
+
+if s[0] == '0': #최솟값 추출위해서
+    c1+=1
+else:
+    c2+=1
+
+for i in range(len(s)-1): # 비교해야지
+        if s[i]!=s[i+1]: #숫자가 달라 연속이 아니니까
+            if s[i+1]==0:
+                c1+=1
+            else:
+                c2+=1
+                
+print(min(c1,c2))
