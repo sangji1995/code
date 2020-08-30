@@ -1,0 +1,16 @@
+#set my locate
+set_locate=input()
+row=int(set_locate[1])
+column=int(ord(set_locate[0]))-int(ord('a'))+1
+
+#input locate
+moves=[(-2,-1),(-2,1),(-1,-2),(-1,2),(2,1),(2,-1),(1,2),(1,-2)] #number of move
+
+#count posible number to move
+count=0
+for move in moves :
+    row1=row+move[0]
+    column1=column+move[1]
+    if row1>=1 and row1<=8 and column1>=1 and column1<=8:
+       count=count+1
+print(count)       
