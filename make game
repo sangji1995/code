@@ -1,0 +1,54 @@
+#맵 크기 설정
+n,m=map(int,input().split())
+
+#한 번도 안간걸 0으로 설정
+setting= [[0]*m for _ in range(n)]
+x,y,direction=map(int,input().split())#1,1
+setting[x][y]=1  #시작점 설정
+
+#전체맵 만들기 
+a=[]
+for i in range(n):
+    a.append(list(map(int,input().split())))
+
+#움직일수 있는 거리값들 동서남북    
+dx=[-1,0,1,0]
+dy=[0,1,0,-1]    
+    
+def turn():
+    global direction #바깥에서 선언
+    direction-=1 #방향돌리기 위해서
+    if direction ==-1:
+        direction=3
+        
+#게임시작
+count=1
+turn1=0
+while True:
+    turn()
+    dx1=x+dx[direction]
+    dy1=y+dy[direction]
+    #이동해서 한번도 안가본 위치 값 설정
+    if setting[dx1][dy1]==0 and a[dx1][dy1]==0:
+        count+=1
+        turn1=0 #안 가본칸이라서
+        setting[dx1][dy1]=1
+        #자신의 값 업데이트
+        x=dx1
+        y=dy1
+        continue
+    else:
+        turn1+=1
+    
+    #네 방향 다 갈 수 없는 경우
+    if  turn1==4:
+        dx1=x-dx[direction] #한 칸씩 뒤로 이동 
+        dy1=y-dy[direction]
+        if a[dx1][dy1]==0: #전체 맵 안에서 육지인데 사면이 바다인 경우
+           x=dx1# 자신의 위치를 업데이트 한다.
+           y=dy1
+    else:
+        break #게임정지
+    turn1=0
+    
+print(count)
