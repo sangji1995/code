@@ -1,0 +1,10 @@
+s=list(map(int,input().split()))
+
+result=int(s[0])
+
+for i in s[1:]:
+    if i<=1 or result<=1:
+        result+=i
+    else:         
+        result*=i
+print(result)   
