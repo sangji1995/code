@@ -1,0 +1,18 @@
+# -*- coding: utf-8 -*-
+n,m,k=map(int,input().split()) # m더하기수 k초과수
+
+number=list(map(int,input().split())) #입력 숫자
+
+result=0
+
+number.sort()
+first=number[n-1] #큰수
+second=number[n-2] #작은수
+
+for i in range(m):
+    result+=first
+    k-=k
+    if k==0:
+        result+=second
+        
+print(result)   
