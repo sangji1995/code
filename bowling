@@ -1,0 +1,13 @@
+n,m=map(int,input().split()) #갯수, 무게
+number=list(map(int,input().split()))
+
+number.sort()
+
+count=0
+
+for i in range(len(number)):
+    for j in range(i+1,len(number)):
+        if number[i]!=number[j]:
+            count=count+1
+            
+print(count)
