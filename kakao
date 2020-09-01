@@ -1,0 +1,32 @@
+def solution(food_times,k):
+    answer=0
+    lenth=len(food_times) #3
+    total=0 #전체시간 길이에 대한
+    pass_time=0 
+    period=0
+    sorted_food=sorted(food_times)
+    
+    for i in sorted_food: #1 2 3 
+        pass_time=i-period
+        total+=pass_time*lenth # 1*3
+        
+        if total>k:
+            total-=pass_time*lenth
+            break
+        
+        period=i
+        lenth-=1
+    if lenth==0:
+           return -1
+        
+    k-=total
+    j=k%lenth #2 3    
+        
+    l=[]
+    for index,value in enumerate(food_times): #(0,1) (1,2) 
+        if value> period: #2 2 
+            l.append(index+1)#다음걸로 넘어간다.
+        answer=l[j]           
+        return answer
+            
+print(solution([3,1,2],5))     
