@@ -1,0 +1,16 @@
+i=input()
+a=[]
+num=0
+for j in i :
+    if j.isalpha():
+        a.append(j)
+        
+    if j.isdigit():
+        num+=int(j)
+    
+a.sort()
+
+if num!=0:
+    a.append(str(num))
+        
+print(''.join(a)) #join은 리스트 모양 없애준다. 
