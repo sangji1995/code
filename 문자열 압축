@@ -1,0 +1,22 @@
+def solution(s):
+    answer=len(s)
+    
+    for i in range(1,len(s)//2+1):
+        comp=''
+        result=1
+        first=s[0:len(s)]        
+        
+        for j in range(i,len(s),i):
+            if first == s[j:j+i]:
+                result+=1
+            
+            else:
+                comp+=str(result)+first if result>=2 else first
+                first == s[j:j+i]
+                result=1
+        
+        comp+=str(result)+first if result>=2 else first#남아있는 문자열 처리
+        answer=min(answer, len(comp))
+    return answer        
+
+print(solution('aaaaa'))
