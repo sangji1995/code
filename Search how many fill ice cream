@@ -1,0 +1,29 @@
+#행렬 크기 정하기
+n,m= map(int,input().split())
+
+#행렬을 만들기
+matrix=[]
+for i in range(n):
+   matrix.append(list(map(int,input()))) 
+   
+def dfs(x,y):
+    if x<0 or x>n or y<0 or y>m:
+        return False
+    if matrix[x][y]==0:
+        matrix[x][y]=1
+        #방문을 했으니 다른 쪽으로 이동한다.
+        dfs(x-1,y) #up
+        dfs(x+1,y) #down
+        dfs(x,y-1) #left
+        dfs(x,y+1) #right
+        return True
+    return False
+
+#모든 위치 돌아다니기
+result=0
+for a in range(n):
+    for b in range(m):
+        if dfs(a,b) == True:
+            result+=1
+
+print(result)   
