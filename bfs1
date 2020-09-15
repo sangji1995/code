@@ -1,0 +1,40 @@
+
+from collections import deque
+        
+n,m=map(int,input().split())
+
+matrix=[]
+for i in range(n):
+    matrix.append(list(map(int,input())))
+    
+dx=[-1,1,0,0]
+dy=[0,0,-1,1]
+    
+def bfs(x,y):
+    
+    #큐 구현
+    queue=deque()
+    queue.append((x,y))
+    
+    #큐가 빌 때 까지 반복을 한다.
+    while queue:
+        x,y=queue.popleft()
+    
+        #상하좌우로 탐색을 한다.
+        for j in range(4):
+            nx=x+dx[j]
+            ny=y+dy[j]
+            #맵의 범위 초과
+            if nx<0 or ny<0 or nx>=n or ny>=m: #for 에선 1개 적게 수가 도출되기 떄문
+                continue
+            #벽이 존재
+            if matrix[nx][ny]==0:
+                continue
+            #길이 존재시.
+            if matrix[nx][ny]==1:
+                matrix[nx][ny]=matrix[x][y]+1
+                queue.append((nx,ny))
+    
+    return matrix[n-1][m-1]
+                
+print(bfs(0,0))            
