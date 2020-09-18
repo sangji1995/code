@@ -1,0 +1,21 @@
+def binary(array, start, target, end):
+    if start>end:
+        return None
+    mid=(start+end)//2
+    if array[mid] == target:
+        return mid
+    elif array[mid]>target:
+       return binary(array, target, start, mid-1)
+    else:
+       return binary(array, target,  mid+1, end)
+        
+start,target,end=list(map(int,input().split()))
+
+array=list(map(int,input().split()))
+
+result=binary(array, start, target, end)
+
+if binary(array, start, target, end) ==None:
+    print('x')
+else:
+    print(result+1)    
