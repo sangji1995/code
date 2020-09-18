@@ -1,0 +1,28 @@
+def binary(array,target, start, end):
+    while start<=end:
+        mid=(start+end)//2
+        if array[mid]>target:
+            start=mid-1
+        elif array[mid]<target:
+            end=mid+1
+        elif array[mid]==target:
+            return mid
+    return None      
+
+#내거
+n=int(input())
+array= list(map(int,input().split())) 
+
+array.sort()
+
+#손님거
+m=int(input())
+target= list(map(int,input().split()))       
+
+
+for i in target:
+    result=binary(array,i, 0, n-1)
+if result == None:
+    print('rj')
+else:
+    print('x')    
