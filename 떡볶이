@@ -1,0 +1,21 @@
+n,m=list(map(int,input().split()))
+
+dduk=list(map(int,input().split()))
+
+s=0
+end=max(dduk)
+
+result=0
+
+while s<=end:
+    total=0 #자르기 전
+    mid=(s+end)//2#중간 값
+    for i in dduk: #떡 개수를 넣어서 합쳐야 한다.
+        if i>mid:
+            total+=i-mid #개수
+    
+    if total > mid: #합이 중간보다 커
+        end=mid-1 #끝에서 한개씩 뺀다.
+    else:#같거나 작아
+        result=mid #결과에 넣어준다 
+        s=mid+1 #하나씩 늘려준다. 시작점 위치 변경위해서
