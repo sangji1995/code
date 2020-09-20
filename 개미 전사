@@ -1,0 +1,16 @@
+n=int(input())
+
+m=list(map(int,input().split()))
+
+
+for i in range(n):
+    m1=m[i]+m[i-1]
+
+for i in range(n):
+    m2=m[i]+m[i-2]    
+    
+if m1>m2:
+    a=m1
+else:
+    a=m2    
+print(a) 
