@@ -1,0 +1,36 @@
+#초기설정            
+def find_parent(parent,x):
+    if parent[x]!=x:
+        return find_parent(parent,parent[x])
+    return x
+
+def union_parent(parent,a,b):
+    a=find_parent(parent,a)
+    b=find_parent(parent,b)
+    if a<b:
+        b=parent[a]
+    else:
+        a=parent[b]
+        
+#def에 넣어줄 값을 찾는다.
+v,e=map(int,input().split())
+#부모 테이블 초기화
+parent=[0]*(v+1)
+#부모 테이블 값을 숫자의 순서대로 입력
+for i in range(1,v+1):
+    parent[i]=i
+#집합 입력하기
+for j in range(e):
+    a,b=map(int,input().split())
+    union_parent(parent,a,b)
+
+print('부모',end='')
+#부모 테이블 노드 값
+for i in range(1,v+1):
+    print(find_parent(parent,i),end='')
+
+print()
+#부모 테이블 
+print('부모 테이블',end='')
+for i in range(1,v+1):
+    print(parent[i],end='')        
