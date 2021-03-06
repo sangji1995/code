@@ -1,0 +1,12 @@
+n,k=map(int, input().split())
+array=[i for i in range(1,n+1)]
+dele=[]
+idx=0
+while array:
+    #인덱스 고정할 값을 찾아야지 제거한 값에서 부터 k번째 사람을 제거해야한다.
+    idx=idx+(k-1)
+    if idx>len(array):
+        idx=idx%len(array)
+    dele.append(array.pop(idx))
+print(dele)
+
