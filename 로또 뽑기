@@ -1,0 +1,23 @@
+from random import randint
+n=int(input())
+        
+def generate_numbers(n):    
+    lotto=[]
+    while len(lotto)<n:
+        generate_numbers =randint(1,45)
+        if generate_numbers not in lotto:
+             lotto.append(generate_numbers)   
+    return lotto       
+lotto_num=generate_numbers(n)
+
+def draw_winning_numbers(lotto_num):
+    
+    lotto_num.sort()
+    nd=randint(1,45)
+    if len(lotto_num)==6:
+        if nd not in lotto_num: 
+            lotto_num.append(nd)
+        
+    return lotto_num    
+
+print(draw_winning_numbers(lotto_num))
