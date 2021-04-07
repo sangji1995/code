@@ -1,0 +1,11 @@
+from random import randint
+n=int(input())
+        
+def generate_numbers(n):    
+    lotto=[]
+    while len(lotto)<n:
+        generate_numbers =randint(1,45)
+        if generate_numbers not in lotto:
+             lotto.append(generate_numbers)   
+    return lotto       
+print(generate_numbers(n))
